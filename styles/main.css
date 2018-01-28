@@ -30,6 +30,64 @@ h6 {
 	color: #4EAAA4;
 }
 
+/*-- Forms --*/
+
+form label,
+form input,
+form textarea {
+	display: block;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+	margin-bottom: 20px;
+	border: 1px solid #E6E6E6;
+	font-size: .85em;
+	width: 100%;
+	padding: .5em 1em;
+	box-sizing: border-box;
+	outline-style: solid;
+	outline-color: rgba( 255, 255, 255, 0);
+	outline-width: 2px;
+	transition: all .15s cubic-bezier(.33, .66, .66, 1);
+}
+
+form textarea {
+	height: 11.56rem;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+	outline-color: rgba(78, 170, 164, .75);
+}
+
+form input[type="submit"] {
+	background: #4EAAA4;
+	padding: 0.7rem 2rem;
+	color: white;
+	border: 0;
+	cursor: pointer;
+	transition: all .15s cubic-bezier(.33, .66, .66, 1);
+	outline-style: solid;
+	outline-color: rgba( 255, 255, 255, 0);
+	outline-width: 2px;
+	border: 1px solid white;
+}
+
+form input[type="submit"]:hover {
+	background: rgb(57, 122, 118);
+}
+
+form input[type="submit"]:focus {
+	outline-color: rgba(47, 99, 95, 0.75);
+}
+
+input::placeholder {
+	color: #BFBFBE;
+}
+
 /* -- Layout -- */
 
 .container {
@@ -102,6 +160,12 @@ header nav a:visited {
 header nav a:hover,
 header nav a:active {
 	color: rgb(0, 230, 214);
+}
+
+header nav a:focus {
+	outline-color: #4EAAA4;
+	outline-style: solid;
+	outline-width: 2px;
 }
 
 img {
@@ -194,6 +258,14 @@ aside h1 {
 
 .contact-list li a {
 	display: block;
+	border: 2px solid rgba(0,0,0,0);
+	transition: all .15s cubic-bezier(.33,.66,.66,1);
+}
+
+.contact-list li a:focus {
+	display: block;
+	border: 2px solid #4EAAA4;
+	outline: none;
 }
 
 .contact-list .github {
