@@ -1,7 +1,7 @@
 *,
 *:before,
 *:after {
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 body {
@@ -160,6 +160,10 @@ header nav a:visited {
 header nav a:hover,
 header nav a:active {
 	color: rgb(0, 230, 214);
+}
+
+header nav a.active {
+  color: rgb(0, 230, 214);
 }
 
 header nav a:focus {
@@ -321,5 +325,95 @@ footer .legal {
 		position: fixed;
 		bottom: 0;
 		width: 100%;
+	}
+}
+
+/*-- Portfolio Grid --*/
+
+.portfolio-grid {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+}
+
+.portfolio-link {
+	flex: 1 100%;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.portfolio-link:nth-last-child(1) {
+	margin-bottom: 0;
+}
+
+.portfolio-grid img {
+	padding: 0;
+}
+
+.portfolio-link a {
+	font-family: 'Georgia', Times, Times New Roman, serif;
+	color: white;
+	outline: none;
+  padding: 0.8em 1.25em;
+	font-size: 1.35em;
+  box-shadow: none;
+	border-bottom: none;
+	display: block;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  background: rgba(78, 170, 164, 0.85);
+}
+
+.portfolio-link a:hover {
+	background: rgba(78, 170, 164, 1);
+}
+
+@media only screen and (min-width: 550px) {
+	.portfolio-link {
+		flex: 0 0 50%;
+		margin-bottom: 40px;
+	}
+	/* removing margin from two last items should work even if we add more later */
+	.portfolio-link:nth-last-child(1),
+	.portfolio-link:nth-last-child(2) {
+		margin-bottom: 0;
+	}
+	/*-- I decided to make the gutter and the row spacing the same. Hope that's okay. --*/
+	.portfolio-link:nth-child(even) {
+		padding-left: 20px;
+	}
+	.portfolio-link:nth-child(odd) {
+		padding-right: 20px;
+	}
+	.portfolio-link:nth-child(even) a  {
+		left: 20px;
+	}
+	.portfolio-link:nth-child(odd) a  {
+		right: 20px;
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	.portfolio-grid img {
+		float: none;
+		width: 100%;
+		padding: 0;
+	}
+	.portfolio-link a .fa-arrow-right {
+		position: relative;
+		opacity: 0;
+		left: 20px;
+	}
+	.portfolio-link a:hover .fa-arrow-right {
+		animation-name: moveright;
+    animation-duration: .5s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+	@keyframes moveright {
+    0%   {opacity:0; left: 0px;}
+    100% {opacity:1; left: 20px;}
 	}
 }
