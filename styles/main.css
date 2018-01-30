@@ -32,6 +32,10 @@ h6 {
 
 /*-- Forms --*/
 
+.contact-form {
+	width: 100%;
+}
+
 form label,
 form input,
 form textarea {
@@ -104,7 +108,8 @@ input::placeholder {
 		display: grid;
 		grid-template-columns: 73% 25%;
 		grid-column-gap: 2%;
-		margin: 20px auto 110px auto;
+		margin: 20px auto;
+		width: 100%;
 	}
 }
 
@@ -188,7 +193,6 @@ main {
 	padding: 20px;
 	border: 1px solid #dddddd;
 	border-radius: 3px;
-	margin-bottom: 20px;
 }
 
 main h1,
@@ -213,6 +217,12 @@ main a:hover {
 	background: #b2e5dd;
 }
 
+main a:focus {
+	outline-color: #4EAAA4;
+	outline-style: solid;
+	outline-width: 2px;
+}
+
 @media only screen and (min-width: 700px) {
 	main {
 		margin-left: 20px;
@@ -233,6 +243,7 @@ main a:hover {
 /*-- Aside --*/
 
 aside {
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
@@ -294,13 +305,26 @@ aside h1 {
 
 @media only screen and (min-width: 700px) {
 	aside {
+		margin-top: 0;
 		margin-right: 20px;
+	}
+	.contact-list li a {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (min-width: 850px) {
+	.contact-list li a {
+		font-size: 40px;
 	}
 }
 
 @media only screen and (min-width: 1000px) {
 	aside {
 		margin-right: 0;
+	}
+	.contact-list li a {
+		font-size: 50px;
 	}
 }
 
@@ -321,8 +345,6 @@ footer .legal {
 
 @media only screen and (min-width: 700px) {
 	footer {
-		position: fixed;
-		bottom: 0;
 		width: 100%;
 	}
 }
@@ -362,7 +384,8 @@ footer .legal {
   bottom: 2rem;
   left: 0;
   right: 0;
-  background: rgba(78, 170, 164, 0.85);
+	background: rgba(78, 170, 164, 0.85);
+	transition: all .5s cubic-bezier(.33,.66,.66,1);
 }
 
 .portfolio-link a:hover {
@@ -379,7 +402,7 @@ footer .legal {
 	.portfolio-link:nth-last-child(2) {
 		margin-bottom: 0;
 	}
-	/*-- I decided to make the gutter and the row spacing the same. Hope that's okay. --*/
+	/*-- I decided to make the gutter and the row spacing the same, a slight variation from the design. --*/
 	.portfolio-link:nth-child(even) {
 		padding-left: 20px;
 	}
@@ -415,4 +438,21 @@ footer .legal {
     0%   {opacity:0; left: 0px;}
     100% {opacity:1; left: 20px;}
 	}
+}
+
+/*-- Sticky Footer --*/
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
+}
+.content-container {
+  flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+}
+.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
 }
